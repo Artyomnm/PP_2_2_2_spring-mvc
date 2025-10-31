@@ -22,13 +22,7 @@ public class CarController {
 
     @GetMapping(value = "/cars")
     public String printCars(@RequestParam int count, ModelMap model) {
-        List<Car> listCar = new ArrayList<>();
-        listCar.add(new Car("VAZ", 2101, 64));
-        listCar.add(new Car("GAZ", 24, 95));
-        listCar.add(new Car("NIVA", 2121, 80));
-        listCar.add(new Car("UAZ", 469, 92));
-        listCar.add(new Car("KAMAZ", 6520, 320));
-        List<Car> listCountCar = carService.getListCountCar(listCar, count);
+        List<Car> listCountCar = carService.getListCountCar(count);
         model.addAttribute("listCountCar", listCountCar);
         return "cars";
     }
